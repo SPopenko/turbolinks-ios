@@ -52,6 +52,11 @@ open class Session: NSObject {
     fileprivate var currentVisit: Visit?
     fileprivate var topmostVisit: Visit?
 
+    open func update(_ visitable: Visitable) {
+        currentVisit?.location = visitable.visitableURL
+        currentVisit?.restorationIdentifier = nil
+    }
+    
     open var topmostVisitable: Visitable? {
         return topmostVisit?.visitable
     }

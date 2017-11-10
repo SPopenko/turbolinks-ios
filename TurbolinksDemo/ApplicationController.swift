@@ -38,6 +38,12 @@ class ApplicationController: UINavigationController {
             popViewController(animated: false)
             pushViewController(visitable, animated: false)
         }
+        else if action == .Update {
+            let v = session.topmostVisitable as! DemoViewController
+            v.visitableURL = url
+            session.update(v)
+            return
+        }
         
         session.visit(visitable)
     }
